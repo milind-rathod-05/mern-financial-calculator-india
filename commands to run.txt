@@ -1,0 +1,96 @@
+================================================================================
+FINCALC INDIA - COMMANDS TO RUN
+================================================================================
+
+PREREQUISITES:
+  1. Node.js (v18.0.0 or higher) & npm (v9.0.0 or higher)
+  2. MongoDB running locally at mongodb://127.0.0.1:27017
+     (or configured via MONGODB_URI in server/.env / .env)
+
+--------------------------------------------------------------------------------
+METHOD 1: QUICK START (RECOMMENDED - ALL-IN-ONE)
+--------------------------------------------------------------------------------
+Open a terminal in the project root directory:
+  cd "C:\Users\Milind Rathod\Downloads\BCC\Financial Calculator"
+
+Step 1: Install all dependencies (Root, Server, and Client)
+  npm run install-all
+
+Step 2: Start both Frontend and Backend concurrently
+  npm run dev
+
+Access the application:
+  - Frontend: http://localhost:5173
+  - Backend API: http://localhost:5000
+  - API Health Check: http://localhost:5000/api/health
+
+--------------------------------------------------------------------------------
+METHOD 2: RUN SERVER AND CLIENT IN SEPARATE TERMINALS
+--------------------------------------------------------------------------------
+
+TERMINAL 1 (Backend Server):
+  1. Open terminal and navigate to server folder:
+     cd "C:\Users\Milind Rathod\Downloads\BCC\Financial Calculator\server"
+
+  2. Install server dependencies (first time only):
+     npm install
+
+  3. Start backend server in development mode (with nodemon):
+     npm run dev
+
+  (Or from root directory: npm run server)
+  Server will run at: http://localhost:5000
+
+
+TERMINAL 2 (Frontend Client):
+  1. Open terminal and navigate to client folder:
+     cd "C:\Users\Milind Rathod\Downloads\BCC\Financial Calculator\client"
+
+  2. Install client dependencies (first time only):
+     npm install
+
+  3. Start Vite development server:
+     npm run dev
+
+  (Or from root directory: npm run client)
+  Frontend will run at: http://localhost:5173
+
+--------------------------------------------------------------------------------
+ADDITIONAL USEFUL COMMANDS
+--------------------------------------------------------------------------------
+
+- Run Client Unit Tests:
+    cd client
+    npm test
+    (or: npm run test:run)
+
+- Build Client for Production:
+    cd client
+    npm run build
+
+- Preview Production Build of Client:
+    cd client
+    npm run preview
+
+- Start Server in Production Mode (without nodemon):
+    cd server
+    npm start
+
+--------------------------------------------------------------------------------
+TROUBLESHOOTING & NOTES
+--------------------------------------------------------------------------------
+1. MongoDB Connection:
+   Make sure MongoDB service is active. If MongoDB is not running, the API will 
+   respond with a 503 service unavailable error on DB-dependent routes.
+   To start MongoDB locally (Windows):
+     net start MongoDB
+     or run `mongod` from your MongoDB bin directory.
+
+2. Environment Variables:
+   Environment variables are configured in `.env` and `server/.env`.
+   Default settings:
+     PORT=5000
+     NODE_ENV=development
+     MONGODB_URI=mongodb://127.0.0.1:27017/fincalc-india
+     CLIENT_URL=http://localhost:5173
+================================================================================
